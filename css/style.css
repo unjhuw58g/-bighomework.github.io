@@ -1,0 +1,159 @@
+*{
+	margin:0;
+	padding:0;
+}
+ul{
+	list-style:none;
+}
+/* 导航栏框框 */
+.top{
+	background-color:#FF9003;
+	height:70px;
+	margin-left: 100px;
+	margin-right: 100px;
+	border-radius: 60px;
+	line-height: 65px;
+	text-align: center;
+	margin-top: -40px;
+	z-index: 2;
+	position:relative;
+}
+/* 导航栏文字 */
+.ul1{
+	display:flex;
+	justify-content: space-evenly;
+	font-size: 20px;
+}
+/* 导航栏文字颜色 */
+.ul1 a{
+	color: black;
+	text-decoration:none;
+}
+/* 最上面 */
+.tttop{
+	height: 160px;
+	background-color:#EEEEEE;
+	list-style:none;
+	display: flex;
+	justify-content:space-around;
+	padding: 10px;
+}
+.tttop span{
+	font-size: 10px;
+}
+svg{
+	height: 20px;
+	width: 50px;
+	margin-right: -10px;
+}
+/* "欢迎访问"文字 */
+.tttop a{
+	text-decoration:none;
+	color:#717171;
+	font-size:2px;
+}
+/* 第一个div */
+.first{
+	background-color:#E8C1B5;
+	height:600px;
+	weight:100%;
+	z-index: 1;
+	margin-top: -30px;
+	position:relative;
+}
+.swiper-container{
+	width: 800px;
+	height: 600px;
+}
+.swiper-slide img{
+	width: 800px;
+	height: 600px;
+}
+/* 第二个 */
+.second{
+    background-color: #ECD0C0;
+	height:600px;
+	weight:100%;
+	display: flex;
+	justify-content: center;
+	padding: 50px 0px;
+}
+.left{
+	background-color: #E8C1B5;
+	height:600px;
+	width:40%;
+}
+.left img{
+	height:450px;
+	width:588px;
+	margin-top: 50px;
+}
+.right{
+	width: 40%;
+	height:600px;
+	background:#FFFFFF;
+}
+.right{
+	font-size: 25px;
+	color: #D79783;
+	margin-left: 60px;
+}
+.right img{
+	margin-left: 36px;
+	margin-top: 50px;
+}
+/* 第三个 */
+.third{
+    background-color:#E8C1B5;
+	height:400px;
+	weight:100%;
+	display: flex;
+	justify-content: center;
+	padding: 50px 0px;
+}
+.type{
+	color:#FFFFFF;
+	margin-top: 100px;
+}
+.text1{
+	font-size: 20px;
+	margin-left: 250px;
+}
+.text2{
+	font-size: 40px;
+	margin-left: 250px;
+}
+.text3{
+	font-size: 18px;
+	margin-left: 250px;
+	margin-top: 40px;
+}
+/* 底部 */
+.footer{
+	background-color:#ECCFBF;
+	height:150px;
+	weight:100%;
+	display: flex;
+	justify-content: space-around;
+	padding: 50px 200px;
+}
+.text22{
+	margin-top: 20px;
+}
+.footer svg{
+	margin-top: 30px;
+}
+.leeft{
+	flex: 1;
+}
+.mmmiddle{
+	text-align: center;
+	flex: 1;
+	line-height: 40px;
+	margin-left: 40px;
+}
+.riight{
+	text-align: center;
+	flex: 1;
+	line-height: 40px;
+}

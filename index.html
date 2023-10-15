@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>pet shop</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#login{
+				width: 100%;
+				height: 52vh;
+				padding: 24vh 0vh;
+				background-color: #A9C9FF;
+				background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+				margin: 0 atuo;
+			}
+			.container{
+				margin: 0 auto;
+				width: 40%;
+				height: 50vh;
+				background: #beeedd;
+				padding-top: 40px;
+			}
+			.title{
+				font-size: 28px;
+				text-align: center;
+			}
+			form{
+				width: 48%;
+				margin: 40px auto;
+				line-height: 40px;
+				font-size: 20px;
+			}
+			.user_name input,.user_pwd input{
+				width: 160px;
+				height: 20px;
+			}
+			.btn{
+				text-align: center;
+				margin-top:20px ;
+			}
+			.btn input{
+				width: 50px;
+				height: 30px;
+				border-radius: 30%;
+				margin: 0px 10px;
+			}
+			.reg{
+				text-align: center;
+			}
+			#error_name,#error_pwd,#error_pwd1{
+				font-size: 16px;
+				color: red;
+			}
+		</style>
+		<script>
+		var flag1 = false;
+		var flag2 = false;
+		var flag3 = false;
+		function $(id){
+			return document.getElementById(id);
+		}
+		// 检查卡号
+		function checkId(){
+			$("error_name").innerText = "";
+			// 通过ID名字获取输入的卡号
+			var userName = $("name").value;
+			// 判断卡号是否为空
+			if(userName == ""|| userName == null){
+				$("error_name").innerText = "卡号不能为空！";
+				// 此处return的作用是遇到错误就终止函数，返回
+				return;
+			}
+		// 长度必须为4-20
+			if(userName.length < 4 || userName.length >20){
+			$("error_name").innerText = "长度必须在4-20之间";
+			return;
+			}
+			// 以英文开头，且只能包含数字、字母、下划线
+			var userMath = /^[a-zA-Z][a-zA-Z0-9_]*$/;
+			if(!userName.match(userMath)){
+				$("error_name").innerText = "必须以英文开头，并且只能包含数字、字母、下划线";
+				return;
+			}
+			flag1 = true;
+		}
+		//检查口令
+		function checkPwd(){
+			$("error_pwd").innerText="";
+			// 通过ID名字获取输入的口令
+			var userPwd = $("pwd").value;
+			if(userPwd == ""|| userPwd == null){
+				$("error_pwd").innerText = "口令不能为空！";
+				// 此处return的作用是遇到错误就终止函数，返回
+				return;
+			}
+			if(userPwd.length < 8 || userPwd.length >25){
+			$("error_pwd").innerText = "长度必须在8-25位之间";
+			return;
+			}
+			flag2 = true;
+		}
+		function checkPwdThird(){
+			$("error_pwd1").innerText="";
+			// 通过ID名字获取第一次输入的口令
+			var userPwd = $("pwd").value;
+			// 通过ID名字获取二次输入的口令
+			var userPwdThird = $("third_pwd").value;
+			if(userPwdThird == ""|| userPwdThird == null){
+				$("error_pwd1").innerText = "二次口令不能为空！";
+				// 此处return的作用是遇到错误就终止函数，返回
+				return;
+			}
+			if(userPwd != userPwdThird){
+				$("error_pwd1").innerText = "输入的两次密码不一致！";
+				return;
+			}
+			flag3 = true;
+		}
+		//认证按钮
+		function login(){
+			if(flag1 && flag2 && flag3){
+				//只有三者同时满足要求时，才进行接下来的验证
+				// 假设用户名为user,密码为12345678
+				// 1.获取输入的卡号、口令
+				var userName = $("name").value;
+				var userPwd = $("pwd").value;
+				// 判断卡号，口令是否正确
+				if(userName == "user" && userPwd == "12345678"){
+					// 说明认证成功，直接进行跳转
+					window.location.href="./index2.html";
+				}
+				else{
+					// 卡号或者口令不正确
+					alert("卡号或者口令不正确，请重新输入");
+				}
+			}
+			else{
+				// 否则，检查卡号或者口令是否符合要求
+				alert("检查卡号或者口令是否符合要求!");
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<div id="login">
+			<div class="container">
+				<div class="title">Welcome to Pet Shop</div>
+				<form action="">
+					<div class="user_name">
+						<span>账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:&nbsp;&nbsp;</span>
+						<input type="text" id="name" placeholder="请输入账号"  onblur="checkId();"/>
+						<div class="name-label" id="error_name"></div>
+						
+					</div>
+					<!-- 错误信息提示 -->
+					<div class="user_pwd">
+						<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
+						<input type="password" id="pwd" placeholder="请输入密码"  onblur="checkPwd();"/>
+						<div class="pwd-label" id="error_pwd"></div>
+					</div>
+					<div class="user_pwd">
+						<span>确认密码：</span>
+						<input type="password" id="third_pwd" placeholder="请确认密码" onblur="checkPwdThird();" />
+						<div class="pwd-label1" id="error_pwd1"></div>
+					</div>
+					<div class="btn">
+						<input type="button" value="登录" class="btn1" id="login_btn" onclick="login();"/>
+						<input type="reset" value="重置" class="btn2" />
+					</div>
+				</form>
+				<div class="reg">
+					账号：user
+					密码：12345678
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
